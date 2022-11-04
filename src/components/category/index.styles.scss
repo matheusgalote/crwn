@@ -1,0 +1,11 @@
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+
+}
+
+.container {
+  padding: 10px calc((100% - 1200px)/2);
+}

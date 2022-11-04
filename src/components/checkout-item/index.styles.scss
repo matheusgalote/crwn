@@ -1,0 +1,44 @@
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  border-bottom: 3px solid #ccc;
+
+  .item-image {
+    max-height: 13rem;
+    max-width: 15rem;
+  }
+
+  .item-description {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .item-quantity {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0.7rem;
+  }
+
+  .item-price {
+    font-family: 'IBM Plex Sans Mono', monospace;
+  }
+
+  .angle {
+    cursor: pointer;
+  }
+
+  .item-delete {
+    font-size: 1.3rem;
+    background: none;
+    border: none;
+    padding: 0.7rem;
+    cursor: pointer;
+  }
+
+}
+
+
