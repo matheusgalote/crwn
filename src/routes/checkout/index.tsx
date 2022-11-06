@@ -11,7 +11,7 @@ const Checkout = () => {
   return (
     <div className="checkout-container">
       <Table />
-      <tbody>
+      <div>
         {cartItems.length ? (
           cartItems.map((item: any) => (
             <CheckoutItem key={item.id} item={item} />
@@ -19,7 +19,7 @@ const Checkout = () => {
         ) : (
           <div className="not-found">No items</div>
         )}
-      </tbody>
+      </div>
       {cartItems.length ? <CheckoutTotal /> : ""}
     </div>
   );

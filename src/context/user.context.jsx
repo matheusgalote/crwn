@@ -3,6 +3,7 @@ import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth,
 } from "../utils/firebase/firebase";
+import { createAction } from "../utils/reducer/reducer.utils";
 
 export const UserContext = createContext({
   setCurrentUser: (user) => null,
@@ -21,28 +22,23 @@ const userReducer = (state, action) => {
       return {
         currentUser: payload,
       };
-    case "increment":
-      return {
-        value: state.value + 1,
-      };
     default:
       throw new Error(`ERROR TYPE ${type} in userReducer`);
   }
 };
 
 const INITIAL_STATE = {
-  currentUser: null
-}
+  currentUser: null,
+};
 
 export const UserProvider = ({ children }) => {
-  // const [currentUser, setCurrentUser] = useState(null);
-  const [ state, dispatch ] = useReducer(userReducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(userReducer, INITIAL_STATE);
 
   const { currentUser } = state;
 
   const setCurrentUser = (user) => {
-    dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user })
-  }
+    dispatch(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user));
+  };
 
   const value = { currentUser, setCurrentUser };
 
