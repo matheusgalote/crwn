@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, useContext, useEffect } from "react";
+import React, { ChangeEvent, useState } from "react";
 import * as yup from "yup";
 import Button from "../../helpers/button";
 import FormInput from "../../helpers/form/form-input";
@@ -6,7 +6,6 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase";
-import { UserContext } from "../../context/user.context";
 import "./index.styles.scss";
 
 const defaultFormFields = {

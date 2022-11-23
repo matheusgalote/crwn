@@ -85,10 +85,7 @@ export const createUserDocumentFromAuth = async (
   if (!userAuth) return;
   const userDocRef = doc(db, "users", userAuth.uid);
 
-  console.log(userDocRef);
-
   const userSnapshot = await getDoc(userDocRef);
-  console.log(userSnapshot);
 
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
@@ -109,10 +106,6 @@ export const createUserDocumentFromAuth = async (
   return userDocRef;
 };
 
-// interface IEmailAndPassword {
-//   email: string;
-//   password: string
-// }
 
 export const createAuthUserWithEmailAndPassword = async (
   email,
