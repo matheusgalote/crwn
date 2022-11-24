@@ -8,7 +8,10 @@ import Navigation from "./routes/navigation";
 import Auth from "./routes/auth";
 import Shop from "./routes/shop";
 import Checkout from "./routes/checkout";
-import { createUserDocumentFromAuth, onAuthStateChangedListener } from "./utils/firebase/firebase";
+import {
+  createUserDocumentFromAuth,
+  onAuthStateChangedListener,
+} from "./utils/firebase/firebase";
 import { setCurrentUser } from "./store/user/user.action";
 
 const App = () => {
