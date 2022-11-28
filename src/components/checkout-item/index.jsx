@@ -6,28 +6,23 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
-import { cartSelector } from "../../store/cart/cart.selector";
-import {
-  addItem,
-  deleteCartItem,
-  removeCartItem,
-} from "../../utils/reducer/cartItemsLogic";
-import { updateCartItemsReducer } from "../../store/cart/cart.action";
+import { selectCartItems } from "../../store/cart/cart.selector";
+import { addItemToCart, deleteItemToCart, removeItemToCart} from "../../store/cart/cart.action";
 
-const CheckoutItem = ({ item }: any) => {
+const CheckoutItem = ({ item } ) => {
   const dispatch = useDispatch();
-  const { cartItems } = useSelector(cartSelector);
+  const cartItems = useSelector(selectCartItems);
 
-  const addItemToCart = () => {
-    dispatch(updateCartItemsReducer(addItem(cartItems, item)));
+  const addingItemToCart = () => {
+    dispatch(addItemToCart(cartItems, item));
   };
 
   const removeItem = () => {
-    dispatch(updateCartItemsReducer(removeCartItem(cartItems, item)));
+    dispatch(removeItemToCart(cartItems, item));
   };
 
   const deleteItem = () => {
-    dispatch(updateCartItemsReducer(deleteCartItem(cartItems, item)));
+    dispatch(deleteItemToCart(cartItems, item));
   };
 
   return (
@@ -44,10 +39,10 @@ const CheckoutItem = ({ item }: any) => {
         <FontAwesomeIcon
           className="angle"
           icon={faAngleRight}
-          onClick={addItemToCart}
+          onClick={addingItemToCart}
         />
       </div>
-      <span className="item-price">{item.price.toFixed(2)}</span>
+      <span className="item-price">{item.price}</span>
       <button className="item-delete">
         <FontAwesomeIcon icon={faTrash} onClick={deleteItem} />
       </button>

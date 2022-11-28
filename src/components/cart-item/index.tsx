@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/cart.context";
 import "./index.styles.scss";
 
 const CartItem = ({ cartItem }: any) => {

@@ -7,11 +7,11 @@ import { signOutUser } from "../../utils/firebase/firebase";
 import CartIcon from "../../components/cart-icon";
 import CardDropdown from "../../components/cart-dropdown";
 import { selectCurrentUser } from '../../store/user/user.selector'
-import { cartSelector } from "../../store/cart/cart.selector";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
 
 const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
-  const { isOpen } = useSelector(cartSelector);
+  const isOpen  = useSelector(selectIsCartOpen);
 
   return (
     <>
